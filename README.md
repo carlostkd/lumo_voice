@@ -2,9 +2,9 @@
 
 Tired to talk with Lumo?
 
-Let Lumo talk with you
+Now Lumo will talk with you!
 
-<img src="lumo_voice.png" width="300" height="250">
+<img src="lumo_voice.png" width="500" height="350">
 
 
 This guide explains how to **send questions to a local Lumo Api V2 service**  and **play the spoken response on a Home Assistant Voice Preview device** using Piper TTS.
@@ -161,7 +161,9 @@ shell_command:
 Note if you already have a** "shell_command"** on the yaml dont duplicate it...
 In that case just add:
 
-** lumo_ask: /usr/bin/python3 /your_file_path/lumo.py** under your other shell_command
+```yaml
+lumo_ask: /usr/bin/python3 /your_file_path/lumo.py  # under your other shell_command
+```
 
 After restart, confirm the service exists:
 - **Developer Tools → Services**
@@ -245,7 +247,7 @@ Done.
 
 To send questions to Lumo without Dashboard Button use the same file lumo.py
 Usage:
-    `lumo.py "Hello how are you" ` 
+    `lumo.py "Hello how are you"
 
 ## Internet queries in a secure way 
 
@@ -253,7 +255,11 @@ Usage:
 
 This script was fully tested with the Ollama Model:
 
-`qwen3:4b-instruct` which also works to **full control the HA instance** if the entities are exposed
+```yaml
+qwen3:4b-instruct
+```
+**which also works to **full control the HA instance** if the entities are exposed**
+
 
 **If you use other Model this may or may not works.**
 
@@ -266,9 +272,11 @@ This tutorial does not cover that steps - Time is precious....
 open the script ollama.py and replace the lines:
 
 ###  TTS / output device
+```yaml
 AGENT_ID = "your_agent_id"
 TTS_ENTITY = "tts.piper" # whatever your tts is
 MEDIA_PLAYER = "media_player.home_assistant_voice_0xxxxx_media_player" # your media player id
+```
 
 ###  Run the script :
 
